@@ -16,7 +16,23 @@ let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 //----------Inserisco i Dati negli appositi spazi in HTML
 document.getElementById(`days`).innerHTML = days;
 document.getElementById(`hours`).innerHTML = hours;
-document.getElementById(`minutes`).innerHTML = minutes;
-document.getElementById(`seconds`).innerHTML = seconds;
+// document.getElementById(`minutes`).innerHTML = minutes;
+// document.getElementById(`seconds`).innerHTML = seconds;
 
 //----------Inizializzo il Countdown
+//secondi
+setInterval(function () {
+  document.getElementById(`seconds`).innerHTML = seconds--;
+  if (seconds <= 0) {
+    document.getElementById(`seconds`).innerHTML = seconds--;
+  }
+}, 1000);
+
+//minuti
+setInterval(
+  (function () {
+    document.getElementById(`minutes`).innerHTML = minutes--;
+  })(1000 * 60 * 60) /
+    (1000 * 60)
+);
+//ore
